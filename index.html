@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/4275c5a10a.js" crossorigin="anonymous"></script>
+    <title>Image editor</title>
+    <link rel="stylesheet" href="style.css">    
+</head>
+<body>
+    <h1>Not available in mobile devices</h1>
+    <div class="container">
+        <h2>Easy Image Editor</h2>
+        <main>
+            <div class="control-panel">
+                <div class="filter-img">
+                    
+                    <label class="title">Filters</label>
+                    <div class="option">
+                        <button class="filter-btn filter-btn-a selected" value="b">Brightness</button>
+                        <button class="filter-btn filter-btn-a" value="s">Saturation</button>
+                        <button class="filter-btn filter-btn-a" value="i">Inverstion</button>
+                        <button class="filter-btn filter-btn-a" value="g">Grayscale</button>
+                        <button class="filter-btn filter-btn-a" value="bl" >Blur</button>
+                        <button class="filter-btn filter-btn-a" value="c">contrast</button>
+                    </div>
+                    <div class="slider">
+                        <div class="slider-info">
+                            <label id="slider-name" for="slider">Saturation</label>
+                            <label id="slider-value" for="slider">100%</label>
+                        </div>
+                        <input type="range" id="slider" min="0" max="200" value="10">
+                    </div>
+                
+                </div>
+                <div class="rotate-img">
+                    <label class="title">Rotate and Flip</label>
+                    <div class="rotate-img-option">
+                    <button  class ="rotate-btn-a" value="r"><i class ="fa-solid fa-rotate-right rotate-btn"></i></button>
+                    <button  class ="rotate-btn-a" value="fr"><i class="fa-solid fa-ellipsis rotate-btn"></i></button>
+                    <button  class ="rotate-btn-a" value="l"><i class="fa-solid fa-rotate-left rotate-btn"></i></button>
+                    <button  class ="rotate-btn-a" value="fl"><i class="fa-solid fa-ellipsis-vertical rotate-btn"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="preview-panel">
+                <img src="Capture.PNG" alt="preview-img" height="100%" width="100%">
+            </div>
+        </main>
+        <div class="final-control">
+            <button class="filter-btn desabled" id="reset">Reset Filters</button>
+            <div class="img-start">
+                <button class="filter-btn" id="choose">Choose Image</button>
+                <input type="file" accept="image/*" id="input-choose" hidden>
+                <button class="filter-btn desabled" id="save">Save Image</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
