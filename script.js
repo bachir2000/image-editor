@@ -68,14 +68,14 @@ if(!inputChoose.files[0]){
     restBtn.classList.remove("desabled")
     saveBtn.classList.remove("desabled");
     previewImg.src = URL.createObjectURL(file);
-    filter = {brightness : 100 ,grayscale : 0,saturate : 100,invert : 0,blur : 0,contrast : 100,rotate: 0,scaleXValue : 1, scaleYalue:1};
+    filter = {brightness : 100 ,grayscale : 0,saturate : 100,invert : 0,blur : 0,contrast : 100,rotate: 0,scaleXValue : 1, scaleYValue:1};
 }};
 
 inputChoose.addEventListener('change',img);
 
  // Reset filter  
 restBtn.addEventListener("click",() => {previewImg.style.filter = 'initial'
-filter = {brightness : 100 ,grayscale : 0,saturate : 100,invert : 0,blur : 0,contrast : 100,rotate: 0,scaleXValue : 1, scaleYalue : 1};
+filter = {brightness : 100 ,grayscale : 0,saturate : 100,invert : 0,blur : 0,contrast : 100,rotate: 0,scaleXValue : 1, scaleYValue : 1};
 previewImg.style.transform = "rotate(0)";
 });
 
@@ -83,23 +83,19 @@ previewImg.style.transform = "rotate(0)";
 // Rotate filter
 rotateBtns.forEach(btn => {
     btn.addEventListener('click', ()=>{
-        if (btn.value == 'r') {
+        if(btn.value === 'r') 
+        {
             filter.rotate += 90;
-        } else if(btn.value == 'l'){
+        }else if(btn.value === 'l'){
             filter.rotate -= 90;
-        }else if(btn.value == 'fr'){
-            filter.scaleYValue = filter.scaleYValue < 0 ? 1:  -1;
-        }else if(btn.value == 'fl'){
-            filter.scaleXValue = filter.scaleXValue < 0 ? 1:  -1;}
+        }else if(btn.value === 'fr'){
+            filter.scaleYValue = filter.scaleYValue < 0 ? 1: -1;
+        }else if(btn.value === 'fl'){
+            filter.scaleXValue = filter.scaleXValue < 0 ? 1: -1;
+        }else console.log('hello wolrd bbut its a bug');
+        previewImg.style.transform = 'rotate('+filter.rotate+'deg) scaleY('+filter.scaleYValue+') scaleX('+filter.scaleXValue+')'
     })
 });
-
-rotateBtns.forEach(btn => 
-    {
-    console.log("clicked");
-    btn.addEventListener('click', ()=>previewImg.style.transform = 'rotate('+filter.rotate+'deg) scaleY('+filter.scaleYValue+') scaleX('+filter.scaleXValue+')'
-)});
-
 
 // Save and download the image
 saveBtn.addEventListener('click',()=>{
